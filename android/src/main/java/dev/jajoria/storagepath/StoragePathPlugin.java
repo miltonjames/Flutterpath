@@ -80,7 +80,7 @@ public class StoragePathPlugin implements MethodCallHandler, FlutterPlugin, Acti
     @Override
     public void onMethodCall(MethodCall call, final Result result) {
         if (call.method.equals("getImagesPath")) {
-            Permissions.check(activity, Manifest.permission.READ_MEDIA_IMAGES, null, new PermissionHandler() {
+            Permissions.check(activity, Manifest.permission.READ_EXTERNAL_STORAGE, null, new PermissionHandler() {
                 @Override
                 public void onGranted() {
                     getImagePaths(result);
