@@ -104,17 +104,9 @@ public class StoragePathPlugin implements MethodCallHandler, FlutterPlugin, Acti
                 }
             });
         } else if (call.method.equals("getFilesPath")) {
-            Permissions.check(activity, Manifest.permission.READ_EXTERNAL_STORAGE, null, new PermissionHandler() {
-                @Override
-                public void onGranted() {
+   
                     getFilesPath(result);
-                }
-
-                @Override
-                public void onDenied(Context context, ArrayList<String> deniedPermissions) {
-                    result.error("1", "Permission denied", null);
-                }
-            });
+               
         } else if (call.method.equals("getAudioPath")) {
             Permissions.check(activity, Manifest.permission.READ_EXTERNAL_STORAGE, null, new PermissionHandler() {
                 @Override
